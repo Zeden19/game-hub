@@ -1,10 +1,29 @@
 import { useEffect, useState } from "react";
 import apiClient from "./api-client.ts";
-import {CanceledError} from "axios";
+import { CanceledError } from "axios";
 
-interface Game {
+export interface Platform {
+  platform: {
+    name: | "Xbox" | "PlayStation" | "PC" | "Apple Macintosh" | "Linux" | "Nintendo" | "Android" | "iOs";
+    slug:
+      | "xbox-series-x"
+      | "xbox-one"
+      | "xbox360"
+      | "pc"
+      | "linux"
+      | "mac"
+      | "playstation5"
+      | "playstation4"
+      | "playstation3"
+      | "nintendo-switch";
+  };
+}
+
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
+  parent_platforms: Platform[];
 }
 
 interface GamesResponse {
@@ -20,23 +39,25 @@ const useGames = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const controller = new AbortController()
-    
+    const controller = new AbortController();
+
     setLoading(true);
     apiClient
       .get<GamesResponse>("/games", { signal: controller.signal })
-      .then((res) => setGames(res.data.results))
+      .then((res) => {
+        setGames(res.data.results);
+        console.log(res.data.results);
+      })
       .catch((err) => {
-        if (err instanceof CanceledError) return
+        if (err instanceof CanceledError) return;
         setError(err.message);
-        
       })
       .finally(() => setLoading(false));
-    
+
     return () => controller.abort();
   }, []);
-  
-  return {games, error, loading}
+
+  return { games, error, loading };
 };
 
 export default useGames;
