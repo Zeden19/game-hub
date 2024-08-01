@@ -14,9 +14,9 @@ function App() {
           <Navigation></Navigation>
         </GridItem>
         <Show above={"md"}>
-          <GridItem area={"aside"} bg={'lavender'}>aside</GridItem>
+          <GridItem area={"aside"}>aside</GridItem>
         </Show>
-        <GridItem area={"main"} bg={'black'} textColor={"white"}>main</GridItem>
+        <GridItem area={"main"} textColor={"white"}>main</GridItem>
       </Grid>
     
     </>
