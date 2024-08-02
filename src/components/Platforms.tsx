@@ -9,7 +9,6 @@ import {
   FaWindows,
   FaXbox,
 } from "react-icons/fa";
-import { JSX } from "react/jsx-runtime";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { IconType } from "react-icons";
 
@@ -18,7 +17,6 @@ interface Props {
 }
 
 function Platforms({ platforms }: Props) {
-  const platformIcons: JSX.Element[] = [];
 
   const iconMap: { [key: string]: IconType } = {
     Xbox: FaXbox,
@@ -30,8 +28,7 @@ function Platforms({ platforms }: Props) {
     iOs: FaAppStoreIos,
     Linux: FaLinux,
   };
-
-  console.log(platformIcons);
+  
   return (
     <HStack paddingBottom={"6px"}>
       {platforms.map((platform) => (
