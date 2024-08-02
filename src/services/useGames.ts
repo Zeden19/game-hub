@@ -4,7 +4,15 @@ import { CanceledError } from "axios";
 
 export interface Platform {
   platform: {
-    name: | "Xbox" | "PlayStation" | "PC" | "Apple Macintosh" | "Linux" | "Nintendo" | "Android" | "iOs";
+    name:
+      | "Xbox"
+      | "PlayStation"
+      | "PC"
+      | "Apple Macintosh"
+      | "Linux"
+      | "Nintendo"
+      | "Android"
+      | "iOs";
     slug:
       | "xbox-series-x"
       | "xbox-one"
@@ -23,6 +31,7 @@ export interface Game {
   id: number;
   name: string;
   background_image: string;
+  metacritic: number;
   parent_platforms: Platform[];
 }
 
