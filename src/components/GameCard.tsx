@@ -15,9 +15,6 @@ function GameCard({ game, loading }: Props) {
     <Card
       transition={"0.15s"}
       _hover={{ transform: "scale(1.04)", filter: "brightness(110%)" }}
-      borderRadius={"10px"}
-      overflow={"hidden"}
-      width={"250px"}
     >
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
