@@ -30,9 +30,9 @@ function Platforms({ platforms }: Props) {
   };
   
   return (
-    <HStack paddingBottom={"6px"}>
+    <HStack key={"platforms"} paddingBottom={"6px"}>
       {platforms.map((platform) => (
-        <Icon color={"gray.300"} as={iconMap[platform.platform.name]} />
+        <Icon key={platform.platform.name} color={"gray.300"} as={iconMap[platform.platform.name]} />
       ))}
     </HStack>
   );

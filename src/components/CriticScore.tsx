@@ -5,7 +5,7 @@ interface Props {
 }
 
 function CriticScore({ metacritic }: Props) {
-  let color = metacritic > 75 ? 'green' : metacritic < 40 ? 'yellow' : '';
+  let color = metacritic > 75 ? 'green' : metacritic < 40 ? 'red' : 'yellow';
   return (
     <>
       <Badge
