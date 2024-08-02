@@ -30,10 +30,9 @@ const useData = <T>(endpoint: string) => {
         setLoading(false);
         setError(err.message);
       });
-
+    
     return () => controller.abort();
   }, []);
-
   return { data: data, error, loading };
 };
 

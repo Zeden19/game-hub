@@ -6,11 +6,9 @@ import getCroppedImageUrl from "../services/image-url.ts";
 
 interface Props {
   game: Game;
-  loading: boolean;
 }
 
-function GameCard({ game, loading }: Props) {
-  console.log(loading);
+function GameCard({ game }: Props) {
   return (
     <Card
       transition={"0.15s"}

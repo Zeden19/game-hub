@@ -24,7 +24,7 @@ function GameGrid() {
             ))}
           {data.map((game) => (
             <GameCardContainer>
-              <GameCard loading={loading} game={game} key={game.id}></GameCard>
+              <GameCard game={game} key={game.id}></GameCard>
             </GameCardContainer>
           ))}
         </SimpleGrid>
