@@ -5,17 +5,17 @@ import usePlatforms from "../hooks/usePlatforms.ts";
 
 interface Props {
   onPlatformClick: (platform: Platform) => void;
-  selectedPlatformName: string | null | undefined;
+  selectedPlatform: Platform | null
 }
 
-function PlatformFilter({onPlatformClick, selectedPlatformName} : Props) {
+function PlatformFilter({onPlatformClick, selectedPlatform} : Props) {
   const { data, error } = usePlatforms();
   
   if (error) return null;
   return (
     <Menu>
       <MenuButton rightIcon={<BsChevronRight />} as={Button}>
-        {selectedPlatformName ? selectedPlatformName : "Platform"}
+        {selectedPlatform?.name ? selectedPlatform?.name : "Platform"}
       </MenuButton>
       <MenuList>
         {data.map((platform) => (

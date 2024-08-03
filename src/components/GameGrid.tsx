@@ -3,16 +3,14 @@ import useGames from "../hooks/useGames.ts";
 import GameCard from "./GameCard.tsx";
 import GameCardSkeleton from "./GameCardSkeleton.tsx";
 import GameCardContainer from "./GameCardContainer.tsx";
-import {Genre} from "../hooks/useGenres.ts";
-import {Platform} from "../hooks/useGames.ts";
+import { GameQuery } from "../App.tsx";
 
 interface Props {
-  selectedGenre: null | Genre;
-  selectedPlatform: null | Platform;
+  gameQuery: GameQuery;
 }
 
-function GameGrid({selectedGenre, selectedPlatform} : Props) {
-  const { loading, error, data } = useGames(selectedGenre, selectedPlatform);
+function GameGrid({ gameQuery }: Props) {
+  const { loading, error, data } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
     <>
@@ -20,7 +18,7 @@ function GameGrid({selectedGenre, selectedPlatform} : Props) {
         {error && <p key={"error"}>{error}</p>}
         <SimpleGrid
           padding={"20px"}
-          columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+          columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
           spacing={"16px"}
         >
           {loading &&
