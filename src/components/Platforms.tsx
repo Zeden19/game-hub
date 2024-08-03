@@ -17,7 +17,6 @@ interface Props {
 }
 
 function Platforms({ parent_platforms }: Props) {
-  console.log(parent_platforms.map(platform => platform.platform.name))
   const iconMap: { [key: string]: IconType } = {
     Xbox: FaXbox,
     PlayStation: FaPlaystation,
