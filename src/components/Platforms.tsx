@@ -13,11 +13,11 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { IconType } from "react-icons";
 
 interface Props {
-  platforms: Platform[];
+  parent_platforms: { platform: Platform }[];
 }
 
-function Platforms({ platforms }: Props) {
-
+function Platforms({ parent_platforms }: Props) {
+  console.log(parent_platforms.map(platform => platform.platform.name))
   const iconMap: { [key: string]: IconType } = {
     Xbox: FaXbox,
     PlayStation: FaPlaystation,
@@ -28,11 +28,15 @@ function Platforms({ platforms }: Props) {
     iOs: FaAppStoreIos,
     Linux: FaLinux,
   };
-  
+
   return (
     <HStack key={"platforms"} paddingBottom={"6px"}>
-      {platforms.map((platform) => (
-        <Icon key={platform.platform.name} color={"gray.300"} as={iconMap[platform.platform.name]} />
+      {parent_platforms.map((platform) => (
+        <Icon
+          key={platform.platform.name}
+          color={"gray.300"}
+          as={iconMap[platform.platform.name]}
+        />
       ))}
     </HStack>
   );

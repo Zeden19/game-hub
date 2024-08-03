@@ -1,29 +1,10 @@
 import useData from "./useData.ts";
-import { Genre } from "./useGenres.ts";
+import {Genre} from "./useGenres.ts";
 
 export interface Platform {
-  platform: {
-    name:
-      | "Xbox"
-      | "PlayStation"
-      | "PC"
-      | "Apple Macintosh"
-      | "Linux"
-      | "Nintendo"
-      | "Android"
-      | "iOs";
-    slug:
-      | "xbox-series-x"
-      | "xbox-one"
-      | "xbox360"
-      | "pc"
-      | "linux"
-      | "mac"
-      | "playstation5"
-      | "playstation4"
-      | "playstation3"
-      | "nintendo-switch";
-  };
+  id: number;
+  name: string;
+  slug: string
 }
 
 export interface Game {
@@ -31,10 +12,22 @@ export interface Game {
   name: string;
   background_image: string;
   metacritic: number;
-  parent_platforms: Platform[];
+  parent_platforms: { platform: Platform }[];
 }
 
-const useGames = (selectedGenre: Genre | null) =>
-  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [selectedGenre?.id]);
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null,
+) =>
+  useData<Game>(
+    "/games",
+    {
+      params: {
+        genres: selectedGenre?.id,
+        parent_platforms: selectedPlatform?.id,
+      },
+    },
+    [selectedGenre?.id, selectedPlatform?.id],
+  );
 
 export default useGames;
