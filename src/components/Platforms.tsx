@@ -29,7 +29,7 @@ function Platforms({ parent_platforms }: Props) {
   };
 
   return (
-    <HStack key={"platforms"} paddingBottom={"6px"}>
+    <HStack flexWrap={"wrap"} key={"platforms"} paddingBottom={"6px"}>
       {parent_platforms.map((platform) => (
         <Icon
           key={platform.platform.name}

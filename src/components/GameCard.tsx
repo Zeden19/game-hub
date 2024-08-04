@@ -10,13 +10,13 @@ interface Props {
 
 function GameCard({ game }: Props) {
   return (
-    <Card
+    <Card margin={1}
       transition={"0.15s"}
-      _hover={{ transform: "scale(1.04)", filter: "brightness(110%)" }}
+      _hover={{ transform: "scale(1.02)", filter: "brightness(110%)" }}
     >
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <HStack justifyContent={"space-between"}>
+        <HStack marginBottom={3} justifyContent={"space-between"}>
           <Platforms parent_platforms={game.parent_platforms} />
           <CriticScore metacritic={game.metacritic} />
         </HStack>
