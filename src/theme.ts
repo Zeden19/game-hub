@@ -5,6 +5,20 @@ const config: ThemeConfig = {
   useSystemColorMode: true
 }
 
-const theme = extendTheme({config})
+const theme = extendTheme({config,
+colors: {
+  gray: {
+    50: "#f9f9f9",
+    100: "#ededed",
+    200: "#d3d3d3",
+    300: "#b3beb3",
+    400: "#a0a0a0",
+    500: "#898989",
+    600: "#636363",
+    700: "#202020",
+    800: "#121212",
+    900: "#11111"
+  }
+}})
 
 export default theme;
