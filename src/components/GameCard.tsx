@@ -3,6 +3,7 @@ import { Game } from "../hooks/useGames.ts";
 import Platforms from "./Platforms.tsx";
 import CriticScore from "./CriticScore.tsx";
 import getCroppedImageUrl from "../services/image-url.ts";
+import Emoji from "./Emoji.tsx";
 
 interface Props {
   game: Game;
@@ -21,6 +22,7 @@ function GameCard({ game }: Props) {
           <CriticScore metacritic={game.metacritic} />
         </HStack>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
+        <Emoji rating={game.rating_top}></Emoji>
       </CardBody>
     </Card>
   );
