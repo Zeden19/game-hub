@@ -9,21 +9,21 @@ interface Props {
 }
 
 function GenreList({ onGenreClick, selectedGenre }: Props) {
-  const { data, loading, error } = useGenres();
+  const {data, error, isLoading} = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   
   return (
     <List>
-      {error && <Text key={"error"}>{error}</Text>}
+      {error && <Text key={"error"}>{error.message}</Text>}
 
       <Heading fontSize={"2xl"} marginBottom={3}>Genres</Heading>
-      {loading
+      {isLoading
         ? skeletons.map((skeleton) => (
             <ListItem key={skeleton}>
               <GenreListSkeleton key={skeleton} />
             </ListItem>
           ))
-        : data.map((genre) => (
+        : data?.results.map((genre) => (
             <ListItem
               transition={"0.15s"}
               _hover={{ transform: "scale(1.05)", filter: "brightness(120%)" }}

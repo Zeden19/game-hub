@@ -9,13 +9,6 @@ import PlatformFilter from "./components/PlatformFilter.tsx";
 import SortSelector from "./components/SortSelector.tsx";
 import Header from "./components/Header.tsx";
 
-export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
-  sort: string | null;
-  search: string;
-}
-
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
