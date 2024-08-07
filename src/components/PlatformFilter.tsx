@@ -5,11 +5,12 @@ import {Platform} from "../hooks/usePlatforms.ts";
 
 interface Props {
   onPlatformClick: (platform: Platform) => void;
-  selectedPlatform: Platform | null
+  selectedPlatformId?: number
 }
 
-function PlatformFilter({onPlatformClick, selectedPlatform} : Props) {
+function PlatformFilter({onPlatformClick, selectedPlatformId} : Props) {
   const { data, error } = usePlatforms();
+  const selectedPlatform = data.results.find(p => p.id === selectedPlatformId)
   
   if (error) return null;
   return (

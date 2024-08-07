@@ -6,8 +6,8 @@ import {Genre} from "./useGenres.ts";
 const apiClient = new APIClient<Game>("/games");
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sort: string | null;
   search: string;
 }
@@ -27,8 +27,8 @@ const useGames = (gameQuery: GameQuery) =>
     queryFn: ({ pageParam = 1 }) =>
       apiClient.get({
         params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sort,
           search: gameQuery.search,
           page: pageParam,

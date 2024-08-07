@@ -8,6 +8,7 @@ import {GameQuery} from "./hooks/useGames.ts";
 import PlatformFilter from "./components/PlatformFilter.tsx";
 import SortSelector from "./components/SortSelector.tsx";
 import Header from "./components/Header.tsx";
+import {Platform} from "./hooks/usePlatforms.ts";
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -38,9 +39,9 @@ function App() {
           <GridItem area={"aside"} paddingX={5}>
             <GenreList
               onGenreClick={(genre: Genre) =>
-                setGameQuery({ ...gameQuery, genre })
+                setGameQuery({ ...gameQuery, genreId: genre.id })
               }
-              selectedGenre={gameQuery.genre}
+              selectedGenreId={gameQuery.genreId}
             />
           </GridItem>
         </Show>
@@ -50,9 +51,9 @@ function App() {
             <Header gameQuery={gameQuery}></Header>
             <HStack spacing={"10px"}>
               <PlatformFilter
-                selectedPlatform={gameQuery.platform}
+                selectedPlatformId={gameQuery.platformId}
                 onPlatformClick={(platform) =>
-                  setGameQuery({ ...gameQuery, platform })
+                  setGameQuery({ ...gameQuery, platformId: platform.id })
                 }
               />
               <SortSelector
