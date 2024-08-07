@@ -1,6 +1,5 @@
-import { Response } from "./useData.ts";
+import apiClient, { Response } from "../services/api-client.ts";
 import { useQuery } from "@tanstack/react-query";
-import apiClient from "../services/api-client.ts";
 import platforms from "../data/platforms.ts";
 
 // const usePlatforms = () => {
@@ -28,7 +27,7 @@ const usePlatforms = () => {
         .then((res) => res.data);
     },
     staleTime: 24 * 60 * 60 * 1000, //24hrs
-    initialData: {count: platforms.length, results: platforms}
+    initialData: { count: platforms.length, results: platforms },
   });
 };
 

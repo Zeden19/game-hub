@@ -1,7 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import apiClient from "../services/api-client.ts";
-import {Response} from "./useData.ts";
+import apiClient, { Response } from "../services/api-client.ts";
 import genres from "../data/genres.ts";
 
 export interface Genre {
@@ -18,7 +16,7 @@ const useGenres = () => {
       return apiClient.get("/genres").then((res) => res.data);
     },
     staleTime: 24 * 60 * 60 * 1000, //24hrs
-    initialData: {count: genres.length, results: genres },
+    initialData: { count: genres.length, results: genres },
   });
 };
 

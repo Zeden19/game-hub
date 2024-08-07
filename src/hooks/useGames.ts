@@ -1,8 +1,8 @@
-import useData, { Response } from "./useData.ts";
 import { Genre } from "./useGenres.ts";
 import { Platform } from "./usePlatforms.ts";
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client.ts";
+import { Response } from "../services/api-client.ts";
 
 export interface Game {
   id: number;

@@ -2,7 +2,6 @@ import {HStack, Image} from "@chakra-ui/react";
 import logo from "../assets/logo.webp"
 import ColorModeToggle from "./ColorModeToggle.tsx";
 import Search from "./Search.tsx";
-import {GameQuery} from "../App.tsx";
 
 interface Props {
   onSearchEnter: (search: string) => void

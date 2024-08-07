@@ -1,5 +1,4 @@
 import { HStack, Icon } from "@chakra-ui/react";
-import { Platform } from "../hooks/useGames.ts";
 import {
   FaAndroid,
   FaApple,
@@ -11,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { IconType } from "react-icons";
+import {Platform} from "../hooks/usePlatforms.ts";
 
 interface Props {
   parent_platforms: { platform: Platform }[];
