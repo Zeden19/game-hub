@@ -3,16 +3,16 @@ import {GameQuery} from "../hooks/useGames.ts";
 import useGenres from "../hooks/useGenres.ts";
 import platforms from "./Platforms.tsx";
 import usePlatforms from "../hooks/usePlatforms.ts";
+import findPlatforms from "../hooks/findPlatforms.ts";
+import findGenre from "../hooks/findGenre.ts";
 
 interface Props {
   gameQuery: GameQuery;
 }
 
 function Header({ gameQuery }: Props) {
-  const {data : genres} = useGenres();
-  const genre = genres?.results.find(g => g.id === gameQuery.genreId);
-  const {data: platforms} = usePlatforms();
-  const platform = platforms?.results.find(p => p.id === gameQuery.platformId);
+  const genre = findGenre(gameQuery.genreId)
+  const platform = findPlatforms(gameQuery.platformId);
   const sortOptions = [
     { value: "name", label: "Name" },
     { value: "-released", label: "Release Date" },
