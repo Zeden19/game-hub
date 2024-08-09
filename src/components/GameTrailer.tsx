@@ -10,7 +10,7 @@ function GameTrailer({ slug }: Props) {
   const firstTrailer = data?.results[0];
   return !firstTrailer ? null : (
     <>
-      <Box margin={8}>
+      <Box marginBottom={3}>
         <video
           poster={firstTrailer?.preview}
           controls

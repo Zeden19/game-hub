@@ -15,7 +15,7 @@ function GameScreenShots({ slug }: Props) {
   if (error) throw new Error("Screenshot error");
   return (
     <>
-      <Box margin={8}
+      <Box
       ><Slide easing={"ease-out"} indicators={true} transitionDuration={400}>
         {data?.results.map((image) => (
           <img key={image.id} src={image.image} alt={"Screenshot"}/>

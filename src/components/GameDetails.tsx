@@ -11,7 +11,7 @@ function GameDetails({ data }: Props) {
   if (!data) return null;
   return (
     <>
-      <SimpleGrid marginLeft={5} columns={2} as={"dl"}>
+      <SimpleGrid columns={2} as={"dl"}>
         <GridItem>
           <GameAttribute title={"MetaScore"}>
             <CriticScore metacritic={data?.metacritic}></CriticScore>
