@@ -13,7 +13,13 @@ function ExpandableText({ children, maxChars = 300 }: Props) {
   return (
     <>
       <Text>{shownText}</Text>
-      <Button marginLeft={1} size={"xs"} fontWeight={"bold"} colorScheme={"yellow"} onClick={() => setShowFullText(!showFullText)}>
+      <Button
+        marginLeft={1}
+        size={"xs"}
+        fontWeight={"bold"}
+        colorScheme={"yellow"}
+        onClick={() => setShowFullText(!showFullText)}
+      >
         {showFullText ? "Show Less" : "Show More"}
       </Button>
     </>
