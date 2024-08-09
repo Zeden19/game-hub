@@ -5,7 +5,7 @@ interface Trailer {
   data: { 480: string; max: string };
 }
 
-export interface TrailerResponse {
+export default interface TrailerResponse {
   id: number;
   results: Trailer[];
 }

@@ -1,7 +1,7 @@
 import { GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 import GameAttribute from "./GameAttribute.tsx";
 import CriticScore from "./CriticScore.tsx";
-import { Game } from "../entities/Game.ts";
+import Game from "../entities/Game.ts";
 
 interface Props {
   data: Game | undefined;

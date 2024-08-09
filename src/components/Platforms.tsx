@@ -11,7 +11,7 @@ import {
 import { BsNintendoSwitch } from "react-icons/bs";
 import { IconType } from "react-icons";
 
-import {Platform} from "../entities/Platform.ts";
+import Platform from "../entities/Platform.ts";
 
 interface Props {
   parent_platforms: { platform: Platform }[];
