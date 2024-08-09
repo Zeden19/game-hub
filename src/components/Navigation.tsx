@@ -3,15 +3,11 @@ import logo from "../assets/logo.webp"
 import ColorModeToggle from "./ColorModeToggle.tsx";
 import Search from "./Search.tsx";
 
-interface Props {
-  onSearchEnter: (search: string) => void
-}
-
-function Navigation({onSearchEnter} : Props) {
+function Navigation() {
   return (
     <HStack margin={"40px 0 0 0"} padding={"10px"}>
       <Image boxSize={"4em"} src={logo}></Image>
-      <Search onSearchEnter={(search : string) => onSearchEnter(search)}></Search>
+      <Search/>
       <ColorModeToggle></ColorModeToggle>
     </HStack>
   

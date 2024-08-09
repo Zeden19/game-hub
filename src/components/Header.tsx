@@ -1,18 +1,15 @@
 import { Heading, Text } from "@chakra-ui/react";
-import {GameQuery} from "../hooks/useGames.ts";
-import useGenres from "../hooks/useGenres.ts";
-import platforms from "./Platforms.tsx";
-import usePlatforms from "../hooks/usePlatforms.ts";
 import findPlatforms from "../hooks/findPlatforms.ts";
 import findGenre from "../hooks/findGenre.ts";
+import useGameQueryStore from "../hooks/store.ts";
 
-interface Props {
-  gameQuery: GameQuery;
-}
+function Header() {
+  const genreId = useGameQueryStore((state) => state.genreId);
+  const platformId = useGameQueryStore((state) => state.platformId);
+  const sort = useGameQueryStore((state) => state.sort);
 
-function Header({ gameQuery }: Props) {
-  const genre = findGenre(gameQuery.genreId)
-  const platform = findPlatforms(gameQuery.platformId);
+  const genre = findGenre(genreId);
+  const platform = findPlatforms(platformId);
   const sortOptions = [
     { value: "name", label: "Name" },
     { value: "-released", label: "Release Date" },
@@ -23,15 +20,12 @@ function Header({ gameQuery }: Props) {
     { value: "-metacritic", label: "MetaCritic" },
   ];
 
-  const currentSortOrder = sortOptions.find(
-    (option) => option.value === gameQuery.sort,
-  );
+  const currentSortOrder = sortOptions.find((option) => option.value === sort);
   return (
     <Heading fontSize={"5xl"} paddingY={3}>
       <Text>
         {" "}
-        {platform?.name}{" "}
-        {genre?.name} Games{" "}
+        {platform?.name} {genre?.name} Games{" "}
         {currentSortOrder?.label && "Sorted by " + currentSortOrder.label}
       </Text>
     </Heading>

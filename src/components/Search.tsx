@@ -1,12 +1,11 @@
 import {Input, InputGroup, InputLeftElement} from "@chakra-ui/react";
 import {BsSearch} from "react-icons/bs";
 import React from "react";
+import useGameQueryStore from "../hooks/store.ts";
 
-interface Props {
-  onSearchEnter: (search: string) => void
-}
-
-function Search({ onSearchEnter } : Props) {
+function Search() {
+  const setSearch = useGameQueryStore(s => s.setSearch)
+  
   return (
     <InputGroup>
       <InputLeftElement>
@@ -15,8 +14,9 @@ function Search({ onSearchEnter } : Props) {
       <Input
         onKeyDown={(event :  React.KeyboardEvent<HTMLInputElement>) => {
           if (event.key === "Enter") {
+            console.log("enter")
             const inputElement = event.target as HTMLInputElement
-            onSearchEnter(inputElement.value);
+            setSearch(inputElement.value);
           }
         }}
         borderRadius={20}

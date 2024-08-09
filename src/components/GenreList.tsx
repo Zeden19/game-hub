@@ -2,13 +2,12 @@ import useGenres, { Genre } from "../hooks/useGenres.ts";
 import {Button, Heading, HStack, Img, List, ListItem, Text} from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url.ts";
 import GenreListSkeleton from "./GenreListSkeleton.tsx";
+import useGameQueryStore from "../hooks/store.ts";
 
-interface Props {
-  onGenreClick: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
 
-function GenreList({ onGenreClick, selectedGenreId }: Props) {
+function GenreList() {
+  const selectedGenreId = useGameQueryStore(state => state.genreId);
+  const setGenre = useGameQueryStore(state => state.setGenre);
   const {data, error, isLoading} = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   
@@ -29,7 +28,7 @@ function GenreList({ onGenreClick, selectedGenreId }: Props) {
               _hover={{ transform: "scale(1.05)", filter: "brightness(120%)" }}
               paddingY={"5px"}
               key={genre.id}
-              onClick={() => onGenreClick(genre)}
+              onClick={() => setGenre(genre.id)}
             >
               <HStack>
                 <Img

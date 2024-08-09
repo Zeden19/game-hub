@@ -1,5 +1,4 @@
 import axios, {AxiosRequestConfig} from "axios";
-import { GameQuery } from "../hooks/useGames.ts";
 
 export interface Response<T> {
   count: number;
