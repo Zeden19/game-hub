@@ -1,8 +1,9 @@
-import useGenres, { Genre } from "../hooks/useGenres.ts";
+import useGenres from "../hooks/useGenres.ts";
 import {Button, Heading, HStack, Img, List, ListItem, Text} from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url.ts";
 import GenreListSkeleton from "./GenreListSkeleton.tsx";
 import useGameQueryStore from "../hooks/store.ts";
+import {Genre} from "../entities/Genre.ts";
 
 
 function GenreList() {

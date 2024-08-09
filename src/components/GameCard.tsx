@@ -1,10 +1,10 @@
 import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames.ts";
 import Platforms from "./Platforms.tsx";
 import CriticScore from "./CriticScore.tsx";
 import getCroppedImageUrl from "../services/image-url.ts";
 import Emoji from "./Emoji.tsx";
 import { Link } from "react-router-dom";
+import {Game} from "../entities/Game.ts";
 
 interface Props {
   game: Game;
@@ -12,7 +12,7 @@ interface Props {
 
 function GameCard({ game }: Props) {
   return (
-    <Link to={`/games/${game.id}`}>
+    <Link to={`/games/${game.slug}`}>
       <Card
         margin={1}
         transition={"0.15s"}
