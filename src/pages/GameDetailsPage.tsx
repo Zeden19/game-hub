@@ -4,6 +4,7 @@ import { Heading } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText.tsx";
 import GameDetails from "../components/GameDetails.tsx";
 import GameTrailer from "../components/GameTrailer.tsx";
+import GameScreenShots from "../components/GameScreenShots.tsx";
 
 function GameDetailsPage() {
   const { slug } = useParams();
@@ -14,6 +15,7 @@ function GameDetailsPage() {
       <ExpandableText>{data ? data?.description_raw : ""}</ExpandableText>
       <GameDetails data={data} />
       <GameTrailer slug={data?.slug} />
+      <GameScreenShots slug={data?.slug} />
     </>
   );
 }
