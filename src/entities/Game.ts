@@ -1,4 +1,6 @@
-import {Platform} from "./Platform.ts";
+import { Platform } from "./Platform.ts";
+import {Genre} from "./Genre.ts";
+import {Publisher} from "./Publisher.ts";
 
 export interface Game {
   id: number;
@@ -9,4 +11,7 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
   rating_top: number;
+
+  publishers: Publisher[];
+  genres: Genre[];
 }
